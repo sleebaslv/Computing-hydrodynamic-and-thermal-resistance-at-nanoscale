@@ -1,0 +1,67 @@
+##############center of mass velocity of the slab###############
+
+############## Bottom wall ################################
+variable vcmxb1  equal vcm(gb1,x)
+variable vcmxb2  equal vcm(gb2,x)
+variable vcmxb3  equal vcm(gb3,x)
+variable vcmxb4  equal vcm(gb4,x)
+variable vcmxb5  equal vcm(gb5,x)
+variable vcmxb6  equal vcm(gb6,x)
+variable vcmxb7  equal vcm(gb7,x)
+variable vcmxb8  equal vcm(gb8,x)
+variable vcmxb9  equal vcm(gb9,x)
+
+############### Top wall #################################
+variable vcmxt1  equal vcm(gt1,x)
+variable vcmxt2  equal vcm(gt2,x)
+variable vcmxt3  equal vcm(gt3,x)
+variable vcmxt4  equal vcm(gt4,x)
+variable vcmxt5  equal vcm(gt5,x)
+variable vcmxt6  equal vcm(gt6,x)
+variable vcmxt7  equal vcm(gt7,x)
+variable vcmxt8  equal vcm(gt8,x)
+variable vcmxt9  equal vcm(gt9,x)
+
+############# Bottom wall #############################
+variable vcmyb1  equal vcm(gb1,y)
+variable vcmyb2  equal vcm(gb2,y)
+variable vcmyb3  equal vcm(gb3,y)
+variable vcmyb4  equal vcm(gb4,y)
+variable vcmyb5  equal vcm(gb5,y)
+variable vcmyb6  equal vcm(gb6,y)
+variable vcmyb7  equal vcm(gb7,y)
+variable vcmyb8  equal vcm(gb8,y)
+variable vcmyb9  equal vcm(gb9,y)
+
+############ Top wall ###############################
+variable vcmyt1  equal vcm(gt1,y)
+variable vcmyt2  equal vcm(gt2,y)
+variable vcmyt3  equal vcm(gt3,y)
+variable vcmyt4  equal vcm(gt4,y)
+variable vcmyt5  equal vcm(gt5,y)
+variable vcmyt6  equal vcm(gt6,y)
+variable vcmyt7  equal vcm(gt7,y)
+variable vcmyt8  equal vcm(gt8,y)
+variable vcmyt9  equal vcm(gt9,y)
+
+############ Bottom wall ##########################
+variable vcmzb1  equal vcm(gb1,z)
+variable vcmzb2  equal vcm(gb2,z)
+variable vcmzb3  equal vcm(gb3,z)
+variable vcmzb4  equal vcm(gb4,z)
+variable vcmzb5  equal vcm(gb5,z)
+variable vcmzb6  equal vcm(gb6,z)
+variable vcmzb7  equal vcm(gb7,z)
+variable vcmzb8  equal vcm(gb8,z)
+variable vcmzb9  equal vcm(gb9,z)
+
+########### Top wall ##############################
+variable vcmzt1  equal vcm(gt1,z)
+variable vcmzt2  equal vcm(gt2,z)
+variable vcmzt3  equal vcm(gt3,z)
+variable vcmzt4  equal vcm(gt4,z)
+variable vcmzt5  equal vcm(gt5,z)
+variable vcmzt6  equal vcm(gt6,z)
+variable vcmzt7  equal vcm(gt7,z)
+variable vcmzt8  equal vcm(gt8,z)
+variable vcmzt9  equal vcm(gt9,z)

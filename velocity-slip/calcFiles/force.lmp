@@ -1,0 +1,53 @@
+############force on the slab particles due to wall in x-dir#########
+
+###################### Bottom wall ##############################
+compute 	cfb1  gb1 group/group bot pair yes
+compute 	cfb2  gb2 group/group bot pair yes
+compute 	cfb3  gb3 group/group bot pair yes
+compute 	cfb4  gb4 group/group bot pair yes
+compute 	cfb5  gb5 group/group bot pair yes
+compute 	cfb6  gb6 group/group bot pair yes
+compute 	cfb7  gb7 group/group bot pair yes
+compute 	cfb8  gb8 group/group bot pair yes
+compute 	cfb9  gb9 group/group bot pair yes
+
+################### Topwall ################################
+compute         cft1  gt1 group/group top pair yes
+compute         cft2  gt2 group/group top pair yes
+compute         cft3  gt3 group/group top pair yes
+compute         cft4  gt4 group/group top pair yes
+compute         cft5  gt5 group/group top pair yes
+compute         cft6  gt6 group/group top pair yes
+compute         cft7  gt7 group/group top pair yes
+compute         cft8  gt8 group/group top pair yes
+compute         cft9  gt9 group/group top pair yes
+
+################## Bottom wall #############################
+variable nb1 equal count(gb1) 
+variable nb2 equal count(gb2) 
+variable nb3 equal count(gb3) 
+variable nb4 equal count(gb4) 
+variable nb5 equal count(gb5) 
+variable nb6 equal count(gb6) 
+variable nb7 equal count(gb7) 
+variable nb8 equal count(gb8) 
+variable nb9 equal count(gb9) 
+
+############### Top wall #############################
+variable nt1 equal count(gt1)
+variable nt2 equal count(gt2)
+variable nt3 equal count(gt3)
+variable nt4 equal count(gt4)
+variable nt5 equal count(gt5)
+variable nt6 equal count(gt6)
+variable nt7 equal count(gt7)
+variable nt8 equal count(gt8)
+variable nt9 equal count(gt9)
+
+##################### Writing to file ####################
+
+#################### Bottom wall #########################
+fix   	fxforce_bot all ave/time 1 1 1 c_cfb1[1]  v_nb1 v_vcmxb1 c_cfb2[1]  v_nb2 v_vcmxb2  c_cfb3[1]  v_nb3 v_vcmxb3 c_cfb4[1]  v_nb4 v_vcmxb4  c_cfb5[1]  v_nb5 v_vcmxb5 c_cfb6[1]  v_nb6 v_vcmxb6 c_cfb7[1]  v_nb7 v_vcmxb7 c_cfb8[1]  v_nb8 v_vcmxb8  c_cfb9[1]  v_nb9 v_vcmxb9  file  ./outputFiles/friction/r${irun}-sol${RHO_SOLVENT}-bot.data mode scalar 
+
+################## Top wall #############################
+fix   	fxforce_top all ave/time 1 1 1 c_cft1[1]  v_nt1 v_vcmxt1 c_cft2[1]  v_nt2 v_vcmxt2  c_cft3[1]  v_nt3 v_vcmxt3 c_cft4[1]  v_nt4 v_vcmxt4  c_cft5[1]  v_nt5 v_vcmxt5 c_cft6[1]  v_nt6 v_vcmxt6 c_cft7[1]  v_nt7 v_vcmxt7 c_cft8[1]  v_nt8 v_vcmxt8  c_cft9[1]  v_nt9 v_vcmxt9  file  ./outputFiles/friction/r${irun}-sol${RHO_SOLVENT}-top.data mode scalar 

@@ -1,0 +1,9 @@
+pair_style 	lj/cut 2.5
+ 
+
+#pair_modify 	shift yes
+
+pair_coeff      1 1 ${epsilon_cff} ${sigma_cff}
+pair_coeff      1 2* ${epsilon_cfs} ${sigma_cfs}
+pair_coeff      2 2* ${epsilon_css} ${sigma_css}
+pair_coeff      3 3 ${epsilon_css} ${sigma_css}

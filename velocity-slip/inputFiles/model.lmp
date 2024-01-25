@@ -1,0 +1,56 @@
+variable 	sdens equal 1.0
+variable 	rlatt equal (4/${sdens})^(1/3)
+variable 	rlatt_half equal ${rlatt}/2.0
+
+variable 	LAYER_WID equal ${rlatt_half}
+variable 	NO_LAYERS equal 5
+variable 	TOT_ATOMS equal 4608  # Total atoms in the system to make the system density to 0.9
+
+variable 	Lx equal 16
+variable 	Ly equal 16
+variable 	Lz equal 20
+variable	xlo equal -${Lx}/2
+variable	xhi equal  ${Lx}/2
+variable	ylo equal -${Ly}/2
+variable	yhi equal  ${Ly}/2
+variable	zlo equal -${Lz}/2
+variable	zhi equal  ${Lz}/2
+
+variable 	SOLVENT_ATOMS equal ${Lx}*${Ly}*${Lz}*${RHO_SOLVENT}
+variable 	BOT_zlo equal ${zlo}-(${NO_LAYERS}*${LAYER_WID})
+variable 	TOP_zhi equal ${zhi}+(${NO_LAYERS}*${LAYER_WID})
+
+variable 	sim_xlo equal ${xlo}+${rlatt_half} #0.7937 
+variable	sim_xhi equal ${xhi}+${rlatt_half} #0.7937 
+variable 	sim_ylo equal ${ylo}+${rlatt_half} #0.7937 
+variable 	sim_yhi equal ${yhi}+${rlatt_half} #0.7937 
+variable 	sim_zlo equal ${BOT_zlo}-2.0
+variable	sim_zhi equal ${TOP_zhi}+2.0
+
+region 		myregion block ${sim_xlo} ${sim_xhi} ${sim_ylo} ${sim_yhi} ${sim_zlo} ${sim_zhi} units box
+ 
+region		fluid block ${xlo} ${xhi} ${ylo} ${yhi} ${zlo} ${zhi} units box
+region		wall1 block ${xlo} ${xhi} ${ylo} ${yhi} ${BOT_zlo} ${zlo} units box
+region		wall2 block ${xlo} ${xhi} ${ylo} ${yhi} ${zhi} ${TOP_zhi} units box
+
+create_box	3 myregion
+
+create_atoms	1 random ${SOLVENT_ATOMS} 87183 fluid	 # Solvent atoms
+
+lattice  	fcc ${sdens}
+create_atoms 	2 region wall1
+create_atoms 	3 region wall2
+
+mass 		1 1.0
+mass 		2 1.0
+mass 		3 1.0
+
+#write_data     model.lmpsys
+
+group 		system type 1 2 3  
+
+group           fluid type 1 
+
+group           bot type 2  
+group           top type 3 
+group		wall type 2 3 

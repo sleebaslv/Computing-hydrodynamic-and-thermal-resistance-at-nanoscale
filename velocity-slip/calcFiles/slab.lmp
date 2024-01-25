@@ -1,0 +1,50 @@
+################ slab definition  ######################
+variable 	update equal 1
+
+##################### Bottom wall ######################
+region 		b1 block INF INF INF INF  -10.45  -9.45 units box 
+region 		b2 block INF INF INF INF  -10.45  -8.45 units box 
+region 		b3 block INF INF INF INF  -10.45  -7.45 units box 
+region 		b4 block INF INF INF INF  -10.45  -6.45 units box 
+region 		b5 block INF INF INF INF  -10.45  -5.45 units box 
+region 		b6 block INF INF INF INF  -10.45  -4.45 units box 
+region 		b7 block INF INF INF INF  -10.45  -3.45 units box 
+region 		b8 block INF INF INF INF  -10.45  -2.45 units box 
+region 		b9 block INF INF INF INF  -10.45  -1.45 units box 
+
+#################### Top wall ########################
+region          t1 block INF INF INF INF  9.45    10.45 units box 
+region          t2 block INF INF INF INF  8.45    10.45 units box 
+region          t3 block INF INF INF INF  7.45    10.45 units box 
+region          t4 block INF INF INF INF  6.45    10.45 units box 
+region          t5 block INF INF INF INF  5.45    10.45 units box 
+region          t6 block INF INF INF INF  4.45    10.45 units box 
+region          t7 block INF INF INF INF  3.45    10.45 units box 
+region          t8 block INF INF INF INF  2.45    10.45 units box 
+region          t9 block INF INF INF INF  1.45    10.45 units box 
+
+################## Green-Kubo ####################
+region          b0 block INF INF INF INF -10.45 10.45 units box
+group           gb0 dynamic fluid region b0 every ${update}
+
+#################### Bottom wall #####################
+group           gb1 dynamic fluid  region b1 every ${update}   
+group           gb2 dynamic fluid  region b2 every ${update}   
+group           gb3 dynamic fluid  region b3 every ${update}   
+group           gb4 dynamic fluid  region b4 every ${update}   
+group           gb5 dynamic fluid  region b5 every ${update}   
+group           gb6 dynamic fluid  region b6 every ${update}   
+group           gb7 dynamic fluid  region b7 every ${update}   
+group           gb8 dynamic fluid  region b8 every ${update}    
+group           gb9 dynamic fluid  region b9 every ${update}   
+
+################### Top wall ##########################
+group           gt1 dynamic fluid  region t1 every ${update}
+group           gt2 dynamic fluid  region t2 every ${update}
+group           gt3 dynamic fluid  region t3 every ${update}
+group           gt4 dynamic fluid  region t4 every ${update}
+group           gt5 dynamic fluid  region t5 every ${update}
+group           gt6 dynamic fluid  region t6 every ${update}
+group           gt7 dynamic fluid  region t7 every ${update}
+group           gt8 dynamic fluid  region t8 every ${update}
+group           gt9 dynamic fluid  region t9 every ${update}
