@@ -3,7 +3,7 @@ NAVIS (**NA**nochannel **V**elocity and thermal **I**nterfacial **S**lip) is a r
 
 # Reference
 If you find this toolkit useful please cite us:
-https://doi.org/10.48550/arXiv.2601.11391
+https://doi.org/10.1016/j.cpc.2026.110392
 
 # Directory Structure
 The NAVIS toolkit main directory is divided into two parts:
